@@ -5,5 +5,6 @@ void main() {
   runApp(MaterialApp(
     title: "Calculadora IMC v2",
     home: Home(),
+    debugShowCheckedModeBanner: false,
   ));
 }

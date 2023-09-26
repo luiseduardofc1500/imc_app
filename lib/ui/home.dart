@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  labelText: "Altura (m)",
+                  labelText: "Altura (cm)",
                   labelStyle: TextStyle(color: Colors.lightBlue),
                 ),
                 textAlign: TextAlign.center,
@@ -131,49 +131,50 @@ class _HomeState extends State<Home> {
     String _imagem = "";
 
     double peso = double.parse(pesoController.text);
-    double altura = double.parse(alturaController.text);
+    double altura = double.parse(alturaController.text) / 100;
 
     double imc = peso / (altura * altura);
 
     if (_sexoSelecionado == 'homem') {
       if (imc < 18.6) {
         _texto = "Abaixo do peso (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/thin.png";
+        _imagem = "imagens/homem_magro.png";
       } else if (imc >= 18.6 && imc < 24.9) {
         _texto = "Peso ideal (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/shape.png";
+        _imagem = "imagens/homem_ideal.png";
       } else if (imc >= 24.9 && imc < 29.9) {
         _texto = "Levemente acima do peso (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/fat.png";
+        _imagem = "imagens/homem_obesa.png";
       } else if (imc >= 29.9 && imc < 34.9) {
         _texto = "Obesidade Grau I (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/fat.png";
+        _imagem = "imagens/homem_obesa.png";
       } else if (imc >= 34.9 && imc < 39.9) {
         _texto = "Obesidade Grau II (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/fat.png";
+        _imagem = "imagens/homem_obesa.png";
       } else if (imc >= 40) {
         _texto = "Obesidade Grau III (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/fat.png";
+        _imagem = "imagens/homem_obesa.png";
       }
     } else if (_sexoSelecionado == 'mulher') {
-      if (imc < 18.6) {
-        _texto = "Abaixo do peso (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/thin.png";
-      } else if (imc >= 18.6 && imc < 24.9) {
-        _texto = "Peso ideal (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/shape.png";
+      if (imc < 18.5) {
+        _texto = "Mulher Abaixo do peso (${imc.toStringAsPrecision(4)})";
+        _imagem = "imagens/mulher_magra.png";
+      } else if (imc >= 18.5 && imc < 24.9) {
+        _texto = "Mulher Peso ideal (${imc.toStringAsPrecision(4)})";
+        _imagem = "imagens/mulher_ideal.png";
       } else if (imc >= 24.9 && imc < 29.9) {
-        _texto = "Levemente acima do peso (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/fat.png";
+        _texto =
+            "Mulher Levemente acima do peso (${imc.toStringAsPrecision(4)})";
+        _imagem = "imagens/mulher_obesa.png";
       } else if (imc >= 29.9 && imc < 34.9) {
-        _texto = "Obesidade Grau I (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/fat.png";
+        _texto = "Mulher Obesidade Grau I (${imc.toStringAsPrecision(4)})";
+        _imagem = "imagens/mulher_obesa.png";
       } else if (imc >= 34.9 && imc < 39.9) {
-        _texto = "Obesidade Grau II (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/fat.png";
+        _texto = "Mulher Obesidade Grau II (${imc.toStringAsPrecision(4)})";
+        _imagem = "imagens/mulher_obesa.png";
       } else if (imc >= 40) {
-        _texto = "Obesidade Grau III (${imc.toStringAsPrecision(4)})";
-        _imagem = "imagens/fat.png";
+        _texto = "Mulher Obesidade Grau III (${imc.toStringAsPrecision(4)})";
+        _imagem = "imagens/mulher_obesa.png";
       }
     }
 
